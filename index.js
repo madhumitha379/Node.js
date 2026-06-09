@@ -1,17 +1,17 @@
-const http=require('http');
-const server=http.createServer((req,res)=>{
-    res.writeHead(200,{'content-type':'text/plain'});
-    if(req.url ==='/'){
-        res.write("Welcome to Node.js Server");
-    }
-    else if(req.url ==='/about'){
-        res.write("This is About Page");
-    }
-    else{
-        res.write("Page Nt Found");
-    }
-    res.end();
+const express=require('express');
+const app=express();
+app.get('/',(req,res)=>{
+    res.send("Welcome to Express Home Page");
 });
-server.listen(3000,()=>{
-    console.log("Server running at http://localhost:3000");
-})
+app.get('/about',(req,res)=>{
+    res.send("About Page -Express FrameWork");
+});
+app.get('/contact',(req,res)=>{
+    res.send("Contact Page");
+});
+app.use((req,res)=>{
+    res.status(404).send("Page Not Found");
+});
+app.listen(3000,()=>{
+    console.log("Express server running on port 3000");
+});
