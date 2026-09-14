@@ -30,7 +30,7 @@ routes/studentRoutes.js
 const express = require(&quot;express&quot;);
 const router = express.Router();
 // GET all students
-router.get(&quot;/&quot;, (req, res) =&gt; {
+router.get( (req, res) =&gt; {
 
 res.json([
 { id: 1, name: &quot;Smith&quot;, department:
