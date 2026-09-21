@@ -1,11 +1,8 @@
-const bcrypt = require(&#39;bcrypt&#39;);
-const hashPassword = async () =&gt; {
-const hashed = await
-bcrypt.hash(&quot;mypassword&quot;, 10);
-console.log(&quot;Hashed:&quot;, hashed);
-const match = await
-bcrypt.compare(&quot;mypassword&quot;, hashed);
-console.log(&quot;Match:&quot;, match);
+const bcrypt = require("bcrypt");
+const hashPassword = async () => {
+    const hashed = await bcrypt.hash("mypassword", 10);
+    console.log("Hashed:", hashed);
+    const match = await bcrypt.compare("mypassword", hashed);
+    console.log("Match:", match);
 };
-
 hashPassword();
